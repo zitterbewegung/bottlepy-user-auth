@@ -41,6 +41,8 @@ def user_login(): #getting credentials from POST request from login page
             request.POST.get( 'email' ),
             request.POST.get( 'password' )
     ):
+        #if authentication has been successful module will assing a cookie
+        #with encripted user id from database to user
         redirect('/')
 
     redirect('/login/error')
