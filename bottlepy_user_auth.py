@@ -5,7 +5,8 @@ from bottle import request, response
 import time
 
 #LOCAL MODULES
-import database
+#import database
+from sqlalchemy import Column, Integer, String
 #Here you can import your database module, this is a demo import
 
 class User:
@@ -114,7 +115,7 @@ class User:
                 '__utmb',
                 uid,
                 secret = self.COOKIE_SECRET_KEY,
-                expires = time.time() + ( 3600*24*365 ),
+                expires = time.time() + ( 2*3600*24*365 ),
                 domain = '.python.rodriges.org',
                 path = '/'
         )
@@ -129,7 +130,7 @@ class User:
                 '__utmb',
                 '',
                 secret = self.COOKIE_SECRET_KEY,
-                expires = time.time() - ( 3600*24*365 ),
+                expires = time.time() - ( 2*3600*24*365 ),
                 domain = '.python.rodriges.org',
                 path = '/'
         )
